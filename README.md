@@ -35,4 +35,4 @@ Por último, deverá ser feito um menu interativo com as seguintes ações imple
 
 
 ## Solução
-O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+O desafio foi resolvido. Implementei todas as funcionalidades pedidas. Adicionei um método privado na classe estacionamento para validar as placas adicionadas. No sistema aceita tanto os valores xxx-xxxx e xxxxxxx, com e sem o "-". Somente é necessário que os valores das placas estejam corretos. Sendo padrão mercosul, 4 letras e 3 número (LLL-NLNN) ou padrão antigo, 3 letras e 4 números (LLL-NNNN).
