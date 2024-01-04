@@ -18,22 +18,28 @@ namespace DesafioFundamentos.Models
         {
             // Feito!!!
             bool continuarTentando = true;
-            while(continuarTentando){
+            while(continuarTentando)
+            {
                 Console.WriteLine("Digite a placa do veículo para estacionar:");
                 string placa = Console.ReadLine().ToUpper(); //valores são postos em maiúsculas
-                if(validarPlaca(placa)){
+                if(validarPlaca(placa))
+                {
                     veiculos.Add(placa);
                     Console.WriteLine("Veículo adicionado.");
                     continuarTentando = false;
-                }else{
+                }
+                else
+                {
                     // Caso seja uma placa inválida.
                     // pode tentar de novo ou desistir.
                     Console.WriteLine("Esta é uma placa inválida! Escolha uma opção...");
                     bool decisao = true;
-                    while(decisao){
+                    while(decisao)
+                    {
                         Console.WriteLine("1 - Tentar de novo");
                         Console.WriteLine("2 - Cancelar");
-                        switch(Console.ReadLine()){
+                        switch(Console.ReadLine())
+                        {
                             case "1":
                                 decisao = false;
                                 Console.Clear();
@@ -85,7 +91,8 @@ namespace DesafioFundamentos.Models
             {
                 Console.WriteLine("Os veículos estacionados são:");
                 //Feito!!!
-                foreach(string veiculo in veiculos){
+                foreach(string veiculo in veiculos)
+                {
                     Console.WriteLine(veiculo);
                 }
             }
@@ -96,22 +103,31 @@ namespace DesafioFundamentos.Models
         }
 
         // placas serão registradas com e sem o '-'. Basta ter os valores certos.
-        private bool validarPlaca(string placaDigitada){
+        private bool validarPlaca(string placaDigitada)
+        {
             // Valida se foi realmente digitado uma placa correta.
             bool placaCorreta = true;
             //verifica se o valor digitado é vazio, nulo ou tem apenas espaços em branco.
-            if(string.IsNullOrWhiteSpace(placaDigitada)){
+            if(string.IsNullOrWhiteSpace(placaDigitada))
+            {
                 placaCorreta = false;
-            }else if(placaDigitada.Length > 8){
+            }
+            else if(placaDigitada.Length > 8)
+            {
                 placaCorreta = false;
-            }else{
+            }
+            else
+            {
                 placaDigitada = placaDigitada.Replace("-","").Trim();
                 // Verifica se a placa está no padrão mercosul ou no antigo.
-                if(char.IsLetter(placaDigitada,4)){
+                if(char.IsLetter(placaDigitada,4))
+                {
                     // padrão mercosul, 4 letras e 3 número (LLL-NLNN)
                     Regex regraMercosul = new Regex("^[A-Z]{3}[0-9][A-Z][0-9]{2}$");
                     placaCorreta = regraMercosul.IsMatch(placaDigitada);
-                }else{
+                }
+                else
+                {
                     // padrão antigo, 3 letras e 4 números (LLL-NNNN)
                     Regex regraAntiga = new Regex("^[A-Z]{3}[0-9]{4}$");
                     placaCorreta = regraAntiga.IsMatch(placaDigitada);
